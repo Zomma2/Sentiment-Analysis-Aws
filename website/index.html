@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Sentiment Analysis Web App</title>
+        <title>Bert Model test</title>
         <meta charset="utf-8">
         <meta name="viewport"  content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -16,11 +16,11 @@
                  var result = parseFloat(xhr.responseText);
                  var resultElement = document.getElementById('result');
                  if (result == 0) {
-                     resultElement.className = 'bg-danger';
-                     resultElement.innerHTML = 'Your review was NEGATIVE!';
+                     resultElement.className = 'bg-succes';
+                     resultElement.innerHTML = 'Appropriate';
                  } else {
-                     resultElement.className = 'bg-success';
-                     resultElement.innerHTML = 'Your review was POSITIVE!';
+                     resultElement.className = 'bg-danger';
+                     resultElement.innerHTML = 'Not Appropriate';
                  }
              }
              xhr.open (oFormElement.method, oFormElement.action, true);
@@ -34,13 +34,13 @@
     <body>
 
         <div class="container">
-            <h1>Is your review positive, or negative?</h1>
-            <p>Enter your review below and click submit to find out...</p>
+            <h1>Is your post Appropriate, or not ?</h1>
+            <p>Enter your post below and click submit to find out...</p>
             <form method="POST"
-                  action="https://3n7jv7zapf.execute-api.us-east-2.amazonaws.com/prod"
+                  action="https://qjy7mrjg5h.execute-api.us-east-2.amazonaws.com/deploy"
                   onsubmit="return submitForm(this);" >                     <!-- HERE IS WHERE YOU NEED TO ENTER THE API URL -->
                 <div class="form-group">
-                    <label for="review">Review:</label>
+                    <label for="review">Post:</label>
                     <textarea class="form-control"  rows="5" id="review">Please write your review here.</textarea>
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
